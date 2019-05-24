@@ -1,0 +1,87 @@
+<h1 class="ui centered header"><%= " #{current_user.full_name} #{@board.name}" %></h1>
+<div class="ui centered card">
+  <div class="image">
+     <img src="https://picsum.photos/200/<%= @board.image %>?random=2"/>
+    </div>
+    <div class="content">
+      <p class=" centered header">
+      <%= @board.name %> 
+    </p>
+</div>
+</div>
+<div class="ui divider"></div>
+
+<br />
+
+
+<div class="ui grid">
+  <div class="sixteen wide mobile eight wide tablet four wide computer column">
+    <div class="ui card">
+      <div class="content">
+       <div class="header"><%= link_to "Lists for Project", list_path(:list) %></div>
+        </div>
+        <div class="content">
+         <h4 class="ui sub header">link to show lists goes here</h4>
+        <div class="ui small feed">
+       <div class="event">
+        <div class="content">
+          <div class="summary">
+             <a>Elliot Fu</a> added <a>Jenny Hess</a> to the project
+          </div>
+        </div>
+      </div>
+      <div class="event">
+        <div class="content">
+          <div class="summary">
+             <a>Stevie Feliciano</a> was added as an <a>Administrator</a>
+          </div>
+        </div>
+      </div>
+      <div class="event">
+        <div class="content">
+          <div class="summary">
+             <a>Helen Troy</a> added two pictures
+          </div>
+        </div>
+      </div>
+    </div>
+   </div>
+   <div class="extra content">
+    <button class="ui button">Add To List</button>
+    </div>
+   </div>
+  <div class="ui card">
+      <div class="content">
+       <div class="header">Tasks will go here</div>
+        </div>
+        <div class="content">
+         <h4 class="ui sub header">link to Task show goes here</h4>
+        <div class="ui small feed">
+       <div class="event">
+        <div class="content">
+          <div class="summary">
+             <a>Elliot Fu</a> added <a>Jenny Hess</a> to the project
+          </div>
+        </div>
+      </div>
+      <div class="event">
+        <div class="content">
+          <div class="summary">
+             <a>Stevie Feliciano</a> was added as an <a>Administrator</a>
+          </div>
+        </div>
+      </div>
+      <div class="event">
+        <div class="content">
+          <div class="summary">
+             <a>Helen Troy</a> added two pictures
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="extra content">
+    <button class="ui button">Add Task</button>
+  </div>
+ </div>
+</div>
