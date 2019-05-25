@@ -1,27 +1,34 @@
 class ListsController < ApplicationController
-  # before_action :set_board
-  before_action :set_list, only: [:show, :edit, :updated, :destroy]
+  before_action :set_board
+  before_action :set_list, only: [:show, :new, :create, :edit, :update, :destroy]
   
   def index
-    @lists = List.all
+    @lists = @board.lists
   end
 
   def new
-    @list = List.new
-    render partial: 'form'
+    @list = @board.lists.new
+    
   end
 
   def create
-   @list = Lists.new(list_params)
+   @list = @board.lists.new(list_params)
    if @list.save 
-    redirect_to lists_path
+    redirect_to [@board, @list]
    else
-    redirect_to :new
+    render :new
    end
   end
 
   def show
 
+  end
+  def update
+    if @list.update(list_params)
+      redirect_to [@board, @list]
+    else
+      render :edit
+    end
   end
 
   def edit
@@ -30,13 +37,19 @@ class ListsController < ApplicationController
 
   def destroy
   @list.destroy
-  redirect_to lists_path
+  redirect_to board_lists_path
   end
 
   private
+  def set_board
+    @board = Board.find(params[:board_id])
+  end
+
   def set_list
     @list = List.find(params[:id])
+  end
+  
   def list_params
-    params.require(:list).find(params[:name, :priority])
+    params.require(:list).permit(:name, :priority)
   end
 end

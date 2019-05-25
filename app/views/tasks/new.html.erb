@@ -1,2 +1,5 @@
-<h1>Tasks#new</h1>
-<p>Find me in app/views/tasks/new.html.erb</p>
+<h1>Add Task To List</h1>
+
+<%= render 'form' %>
+
+<div class='ui right floated button'><%= link_to 'Back', list_tasks_path(:list_id) %>

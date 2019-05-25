@@ -1,2 +1,21 @@
-<h1>Tasks#index</h1>
-<p>Find me in app/views/tasks/index.html.erb</p>
+<div class="header">Tasks To Complete List</div>
+<div class="ui divider"></div>
+
+<%= link_to 'Add Task', new_list_task_path(@list) %>
+<hr />
+<h2><%= @tasks.length <= 0 ? "No tasks" : "" %></h2> 
+  <div class="ui card">
+  <% @tasks.each do |task| %>
+  <div class="content">
+    <i class="right floated star icon"></i>
+    <div class="header"><%= "#{@task.name}"%></div>
+    <div class="description">
+      <div> <%= %> </div>
+    </div>
+  </div>
+  <div class="ui bottom attached ">
+   <div class="ui button"><%= link_to 'Delete', task, method: :delete %></div>
+   <div class="ui button"><%= link_to 'Edit', edit_list_task_path(@list, task) %></div>
+  </div>
+  <% end %>
+</div>

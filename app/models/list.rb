@@ -1,3 +1,5 @@
 class List < ApplicationRecord
-  belongs_to :board
+  belongs_to :boards
+  has_many :tasks
+  
 end

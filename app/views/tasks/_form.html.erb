@@ -1,0 +1,18 @@
+<%= form_with(model: @tasks, local: true, class: "ui form") do |f| %>
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "input", placeholder: "Task to complete" %>
+  </div>
+
+  <div class="field">
+   <%= f.label :completed %>
+   <%= f.text_field :completed, class: "input", placeholder: "False"%>
+ </div>
+ 
+ <div class="field">
+   <%= f.label :priority %>
+   <%= f.text_field :priority, class: "input", placeholder: "Priority Level 1-10"%>
+ </div>
+ 
+ <%= f.submit nil, class: "ui blue button" %>
+<% end %>
