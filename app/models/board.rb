@@ -1,7 +1,7 @@
 class Board < ApplicationRecord
   belongs_to :user
-  has_many :lists
-  has_many :tasks,  through: :lists
+  has_many :lists, dependent: :destroy
+  
 
   def self.all_boards(user_id)
     Board.find_by_sql(
@@ -11,7 +11,7 @@ class Board < ApplicationRecord
     )
   end
 
-  def self.single_board(user_id, board_id)
+  def self.single_board(board_id, user_id)
     Board.find_by_sql(["
       SELECT *
       FROM boards AS b

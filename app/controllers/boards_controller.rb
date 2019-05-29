@@ -39,6 +39,6 @@ class BoardsController < ApplicationController
     @board = Board.single_board(current_user.id, params[:id])
   end
   def board_params
-    params.required(:board). permit(:name, :image, :start_date, :finish_date)
+    params.require(:board). permit(:name, :image, :start_date, :finish_date)
   end
 end

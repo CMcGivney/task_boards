@@ -9,23 +9,32 @@
     </p>
 </div>
 </div>
-<%= link_to 'Add ToDo List', new_board_list_path(@board)%>
+
 <div class="ui divider"></div>
+
 <h2><%= @board.lists.length <= 0 ? "No lists" : "" %></h2> 
-<%= @board.lists.each do |list| %>
 <div class="ui card">
   <div class="content">
-    <i class="right floated star icon"></i>
-    <div class="header"></div>
-    <div class="description">
-      <p><%= @board.lists.name %></p>
-      <p> Priority Level: <%= @board.lists.priority %></p>
-    </div>
+  <% @board.lists.each do |list| %>
+    <p class="header">
+    <%= list.name %>
+    </p>
   </div>
-  <div class="ui bottom attached ">
-   <div class="ui button"><%= link_to 'Delete', @list, method: :delete %></div>
-   <div class="ui button"><%= link_to 'Edit', edit_list_path(@list) %></div>
-   <div class="ui button"><%= link_to 'Add Task', new_list_task_path(@list) %></div>
+  <% end %>
+
+  
+
+    
+
+
+  <div class="extra content">
+    <%= link_to 'Edit', edit_board_path(@board) %> |
+    <%= link_to 'Back', boards_path %> |
+    <%= link_to 'View Lists', board_lists_path(@board) %>
   </div>
 </div>
-<%end%>
+
+
+ 
+
+  

@@ -16,3 +16,10 @@
    <div class="ui button"><%= link_to 'Add Task', new_list_task_path(@list) %></div>
   </div>
 </div>
+<h2>Tasks</h2>
+<% @list.tasks.each do |x| %>
+  <%= render 'tasks/task', { task: x } %>
+<% end %>
+<br />
+<%= link_to 'Add Task', new_list_task_path(@list), class: "ui button blue" %>
+<br />
